@@ -1,0 +1,290 @@
+import React, { useState, useEffect } from 'react';
+import { Heart, Briefcase, Headphones, Home, ArrowRight, MapPin, Mail, Instagram, ChevronRight } from 'lucide-react';
+
+export default function App() {
+  // 読み込み時のフェードイン効果用
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  return (
+    <div className="min-h-screen font-sans text-[#4A4443] bg-[#FDFBF7]" style={{ fontFamily: "'Noto Sans JP', sans-serif" }}>
+      {/* Google Fontsのインポート */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600&display=swap');
+        .font-serif { font-family: 'Noto Serif JP', serif; }
+        .text-balance { text-wrap: balance; }
+      `}} />
+
+      {/* Header */}
+      <header className={`fixed w-full top-0 z-50 transition-all duration-700 bg-[#FDFBF7]/90 backdrop-blur-md border-b border-[#E8D8CE]/50 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
+        <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="font-serif text-xl tracking-wider text-[#B58B79]">
+            Lumière
+          </div>
+          <nav className="hidden md:flex space-x-8 text-sm tracking-widest">
+            <a href="#current-work" className="hover:text-[#B58B79] transition-colors">WORKS</a>
+            <a href="#concept" className="hover:text-[#B58B79] transition-colors">THOUGHTS</a>
+            <a href="#real-estate" className="hover:text-[#B58B79] transition-colors">NEW SERVICE</a>
+            <a href="#profile" className="hover:text-[#B58B79] transition-colors">PROFILE</a>
+          </nav>
+          <a href="#contact" className="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-xs tracking-widest text-white bg-[#B58B79] rounded-full hover:bg-[#9c7564] transition-all shadow-sm hover:shadow-md">
+            お問い合わせ
+          </a>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <div className={`max-w-3xl transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.4] md:leading-[1.5] text-balance mb-8 text-[#3D3534]">
+              ビジネスの裏側を支える日々から、<br />
+              あなたの新しい人生の舞台へ。
+            </h1>
+            <p className="text-base md:text-lg leading-loose text-[#6B6361] mb-12 max-w-xl">
+              普段はカスタマーサポートや事務代行として、<br className="hidden md:block"/>
+              企業様とお客様を繋ぐ裏方の仕事をしています。<br />
+              <br />
+              そして今、その「寄り添う力」を活かして、<br className="hidden md:block"/>
+              自立を願う女性のための不動産物件案内をスタートします。
+            </p>
+            <a href="#concept" className="inline-flex items-center space-x-2 text-[#B58B79] hover:text-[#9c7564] transition-colors group">
+              <span className="tracking-widest text-sm">私の思いを読む</span>
+              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </div>
+        
+        {/* 装飾的な背景要素 */}
+        <div className="absolute top-0 right-0 w-2/3 h-full -z-10 opacity-30 md:opacity-100">
+           <img 
+             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1200" 
+             alt="" 
+             className="w-full h-full object-cover rounded-bl-[120px]"
+             style={{ objectPosition: 'center 20%' }}
+           />
+           <div className="absolute inset-0 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/80 to-transparent"></div>
+        </div>
+      </section>
+
+      {/* Current Works Section (現在の仕事) */}
+      <section id="current-work" className="py-24 md:py-32 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16 md:mb-24">
+            <h2 className="font-serif text-3xl md:text-4xl text-[#3D3534] mb-4">My Current Work</h2>
+            <p className="text-[#B58B79] tracking-widest text-sm">普段の私のお仕事</p>
+            <p className="mt-8 text-[#6B6361] text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+              現在は、オンラインをベースに以下のバックオフィス業務を行っています。<br />
+              ホスピタリティと丁寧なコミュニケーションを大切に、クライアント様を支えています。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
+            
+            {/* メイン事業 */}
+            <div className="group relative bg-[#FDFBF7] p-8 md:p-10 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300 border border-[#E8D8CE]">
+              <div className="absolute top-6 right-6 text-xs font-medium tracking-widest text-[#B58B79] bg-[#F6F3EF] px-3 py-1 rounded-full">MAIN</div>
+              <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#B58B79] mb-6 shadow-sm">
+                <Headphones strokeWidth={1.5} />
+              </div>
+              <h3 className="font-serif text-xl mb-4 text-[#3D3534]">カスタマーサービス代行</h3>
+              <p className="text-[#6B6361] leading-relaxed text-sm">
+                企業様にかわって、お客様からのお問い合わせ対応やフォローアップを行っています。ただマニュアル通りに処理するのではなく、お一人おひとりの声に耳を傾け、女性ならではのきめ細やかな視点とホスピタリティで信頼関係を築くことを得意としています。
+              </p>
+            </div>
+
+            {/* サブ事業 */}
+            <div className="group relative bg-[#FDFBF7] p-8 md:p-10 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300 border border-[#F0EBE6]">
+               <div className="absolute top-6 right-6 text-xs font-medium tracking-widest text-[#8A8281] bg-white px-3 py-1 rounded-full border border-[#F0EBE6]">SUB</div>
+              <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#B58B79] mb-6 shadow-sm">
+                <Briefcase strokeWidth={1.5} />
+              </div>
+              <h3 className="font-serif text-xl mb-4 text-[#3D3534]">事務代行・オンライン秘書</h3>
+              <p className="text-[#6B6361] leading-relaxed text-sm">
+                日々の煩雑なバックオフィス業務（スケジュール管理、データ入力、リサーチなど）を受注ベースでサポートしています。起業家の方や忙しい経営者様が、ご自身のコア業務に集中できるような「時間の余白」を作り出すお手伝いをしています。
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Concept Section (思い) */}
+      <section id="concept" className="py-24 md:py-32 bg-[#F6F3EF]">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#E8D8CE] mb-8 text-[#B58B79]">
+            <Heart strokeWidth={1.5} />
+          </div>
+          <h2 className="font-serif text-2xl md:text-3xl mb-12 tracking-wide">
+            なぜ、バックオフィスから不動産へ？
+          </h2>
+          <div className="space-y-8 text-sm md:text-base leading-[2.2] text-[#5A5251] font-serif">
+            <p>
+              日々、PCの画面越しに多くの方をサポートする中で、<br className="hidden md:block"/>
+              私の中である思いが強くなっていきました。
+            </p>
+            <p>
+              「これから人生を変えたい、動きたい、自立したいと願う女性に、<br className="hidden md:block"/>
+              もっと直接的に寄り添いたい」
+            </p>
+            <p className="text-[#B58B79] text-lg md:text-xl my-12">
+              かつて私も、同じ思いを抱え、<br className="hidden md:block"/>
+              もがきながら新しい一歩を踏み出した一人だからです。
+            </p>
+            <p>
+              環境を変え、自分の足で立つために、一番基盤となるのが「住まい」です。<br />
+              しかし、一人で物件を探し、決断するのはとても勇気がいること。<br />
+            </p>
+            <p>
+              だからこそ、カスタマーサービスで培ってきた「傾聴力」と「ホスピタリティ」を活かし、<br className="hidden md:block"/>
+              あなたの人生の転機に、一番の味方として伴走したい。<br />
+              そんな思いから、不動産の物件案内サービスを立ち上げる決意をしました。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* New Service (不動産) Section */}
+      <section id="real-estate" className="py-24 md:py-32 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl md:text-4xl text-[#3D3534] mb-4">New Challenge</h2>
+            <p className="text-[#B58B79] tracking-widest text-sm">これから始めること</p>
+          </div>
+
+          <div className="relative bg-gradient-to-br from-[#FDFBF7] to-[#F6F3EF] p-8 md:p-16 rounded-[2rem] shadow-md border border-[#E8D8CE] overflow-hidden max-w-5xl mx-auto">
+            <div className="md:w-2/3 relative z-10">
+              <div className="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full mb-8 shadow-sm border border-[#F0EBE6]">
+                <span className="animate-pulse w-2 h-2 rounded-full bg-[#B58B79]"></span>
+                <span className="text-xs font-bold tracking-widest text-[#B58B79]">NEW SERVICE</span>
+              </div>
+              <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-[#B58B79] mb-6 shadow-sm">
+                <Home strokeWidth={1.5} />
+              </div>
+              <h3 className="font-serif text-2xl md:text-3xl mb-4 text-[#3D3534]">不動産物件案内サービス</h3>
+              <h4 className="text-[#B58B79] font-medium mb-6 text-base">〜 新しい人生の舞台を見つけるお手伝い 〜</h4>
+              <p className="text-[#6B6361] leading-relaxed text-sm md:text-base mb-8">
+                「ただの物件探し」ではなく、「これからのあなたの暮らし」を一緒にデザインする気持ちでご案内します。安心できるセキュリティ、心が安らぐ周辺環境、無理のない資金計画。<br />
+                実体験を持つ女性の目線で、親身に、誠実にサポートさせていただきます。<br />
+                私の思いに少しでも共感していただけたら、ぜひお気軽にお声がけください。
+              </p>
+              <ul className="space-y-3 text-[#5A5251] text-sm md:text-base bg-white/50 p-6 rounded-xl border border-[#E8D8CE]/50">
+                <li className="flex items-center"><ChevronRight className="w-5 h-5 text-[#B58B79] mr-3 flex-shrink-0"/> 自立を目指す女性の一人暮らし・拠点探し</li>
+                <li className="flex items-center"><ChevronRight className="w-5 h-5 text-[#B58B79] mr-3 flex-shrink-0"/> 女性目線での治安や周辺環境の丁寧なチェック</li>
+                <li className="flex items-center"><ChevronRight className="w-5 h-5 text-[#B58B79] mr-3 flex-shrink-0"/> カスタマーサポートの経験を活かした安心の対応</li>
+              </ul>
+            </div>
+            {/* 装飾画像 */}
+            <div className="hidden md:block absolute right-0 top-0 w-1/3 h-full">
+               <img 
+                 src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800" 
+                 alt="" 
+                 className="w-full h-full object-cover opacity-60 mix-blend-multiply"
+               />
+               <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#F6F3EF]"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Profile & Info Section */}
+      <section id="profile" className="py-24 md:py-32 bg-[#FDFBF7] border-t border-[#F0EBE6]">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row gap-16 items-center">
+            
+            <div className="w-full md:w-1/2">
+              <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1498842812179-c81beecf902c?auto=format&fit=crop&q=80&w=800" 
+                  alt="" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-[#3D3534]/5"></div>
+              </div>
+            </div>
+
+            <div className="w-full md:w-1/2 space-y-10">
+              <div>
+                <h2 className="font-serif text-3xl text-[#3D3534] mb-2">Profile & Info</h2>
+                <p className="text-[#B58B79] tracking-widest text-sm">プロフィール・事業所概要</p>
+              </div>
+
+              <div className="space-y-6 text-[#5A5251]">
+                <div className="flex items-start space-x-4">
+                  <MapPin className="w-5 h-5 text-[#B58B79] mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium mb-1">所在地</p>
+                    <p className="text-sm leading-relaxed">
+                      〒362-0036<br />
+                      埼玉県上尾市仲町2丁目12-14-305
+                    </p>
+                    <p className="text-xs text-[#8A8281] mt-2">
+                      ※事務代行等、物件案内対面サポートともにオンライン全国対応いたします。
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <Mail className="w-5 h-5 text-[#B58B79] mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium mb-1">お問い合わせ</p>
+                    <p className="text-sm">info@example.com</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-8 border-t border-[#F0EBE6]">
+                <p className="font-serif text-lg text-[#3D3534] mb-4">Message</p>
+                <p className="text-sm leading-relaxed text-[#6B6361] italic">
+                  「カスタマーサービスのお仕事のご依頼も、物件探しのご相談も大歓迎です。どんな小さなことでも構いません、まずはあなたのお話を聞かせてください。共感し合える方とのご縁を大切にしています。」
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* CTA / Contact Section */}
+      <section id="contact" className="py-24 md:py-32 bg-[#3D3534] text-[#FDFBF7] relative overflow-hidden">
+        {/* 背景の装飾 */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[150%] bg-gradient-to-br from-white to-transparent transform rotate-12 blur-3xl"></div>
+        </div>
+
+        <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
+          <h2 className="font-serif text-3xl md:text-4xl mb-6">さあ、お気軽にお声がけください。</h2>
+          <p className="text-[#D4C4B7] mb-12 text-sm md:text-base leading-relaxed">
+            カスタマーサービス代行や事務代行のご依頼・お見積もり、<br className="hidden md:block"/>
+            または不動産物件案内のご相談など、何でもお問い合わせください。
+          </p>
+          
+          <button className="bg-[#B58B79] hover:bg-[#FDFBF7] hover:text-[#3D3534] text-white px-10 py-4 rounded-full tracking-widest text-sm transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto flex items-center justify-center mx-auto space-x-2">
+            <Mail className="w-4 h-4" />
+            <span>相談・問い合わせをする</span>
+          </button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#FDFBF7] py-12 border-t border-[#F0EBE6] text-center">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
+          <div className="font-serif text-2xl tracking-wider text-[#B58B79] mb-6">
+            Lumière
+          </div>
+          <div className="flex space-x-6 mb-8">
+            <a href="#" className="text-[#B58B79] hover:text-[#3D3534] transition-colors">
+              <Instagram className="w-5 h-5" />
+            </a>
+          </div>
+          <div className="text-xs text-[#8A8281] tracking-widest">
+            &copy; {new Date().getFullYear()} All Rights Reserved.
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
